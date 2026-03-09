@@ -1,5 +1,7 @@
 package br.edu.ifsp.list02;
 
+import java.util.Scanner;
+
 /*
     Você está responsável pelo bolo de aniversário da sua priminha e decidiu que o bolo terá uma vela para cada ano da
     idade total dela. Quando ela assopra as velas, ela só é capaz de apagar apenas as velas mais altas. Sua tarefa é fazer
@@ -19,16 +21,45 @@ package br.edu.ifsp.list02;
     Fonte: Adaptado de https://www.hackerrank.com/challenges/birthday-cake-candles/problem
     => Exercício gentilmente cedido pelos profs. Jorge Cutigi e Adenilso Simão (ICMC/USP)
  */
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.List;
+
 public class Ex05 {
     public static void main(String[] args) {
         //Leia o input
         //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        //Escreva o resultado da chamada do método compute()
+
+        Scanner scanner = new Scanner(System.in);
+
+        List<Integer> inputList = new ArrayList<>();
+        System.out.println("Digite -1 para interromper");
+        while (scanner.hasNextInt()) {
+            int num = scanner.nextInt();
+            if (num == -1) break;
+            inputList.add(num);
+        }
+        int[] candlesList = new int[inputList.size()];
+        for (int i = 0; i < inputList.size(); i++) {
+            candlesList[i] = inputList.get(i);
+        }
+
+        scanner.close();
+        final Ex05 ex05 = new Ex05();
+        System.out.println(ex05.compute(candlesList));
     }
 
     int compute(int[] velas) {
-        int output = -1;
-        //put your logic here
+        int output = 0; int maiorValor = -1;
+
+        for (int i = 1; i < velas.length; i++) {
+            if (maiorValor < velas[i] && maiorValor <= velas[0]) {
+                maiorValor = velas[i];
+                output = 1;
+            } else if (maiorValor == velas[i]) output++;
+        }
+
         return output;
     }
 }
