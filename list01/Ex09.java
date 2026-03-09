@@ -16,17 +16,51 @@ package br.edu.ifsp.list01;
     | 25 30 45 -1         | 33.33 3 0.00%  |
     => Exercício gentilmente cedido pelos profs. Jorge Cutigi (IFSP/SCL) e Adenilso Simão (ICMC/USP)
 */
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.List;
+import java.util.StringJoiner;
+
 public class Ex09 {
 
     public static void main(String[] args) {
         //Leia o input
         //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
         //Escreva o resultado da chamada do método compute() aqui
+
+        Scanner scanner = new Scanner(System.in);
+        List<Integer> temp_peopleList = new ArrayList<>();
+        while (scanner.hasNextInt()) {
+            int num = scanner.nextInt();
+            if (num == -1) break;
+            temp_peopleList.add(num);
+        }
+        int[] peopleList = new int[temp_peopleList.size()];
+        for (int i = 0; i < temp_peopleList.size(); i++) {
+            peopleList[i] = temp_peopleList.get(i);
+        }
+
+        scanner.close();
+        final Ex09 ex9 = new Ex09();
+        System.out.println(ex9.compute(peopleList));
     }
 
     String compute(int[] input) {
-        String output = null;
-        //put your logic here
+        String output = "";
+
+        int maiores = 0; int idosos = 0; int somaIdades = 0;
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] > 18) maiores++;
+            if (input[i] > 75) idosos++;
+            somaIdades += input[i];
+        }
+
+        double media = (double) somaIdades / input.length;
+        double porcentagemIdosos = ((double) idosos / input.length) * 100;
+
+        output = String.format("%.2f %d %.2f%%", media, maiores, porcentagemIdosos);
         return output;
     }
+
 }
