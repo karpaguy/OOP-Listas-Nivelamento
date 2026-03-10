@@ -46,14 +46,20 @@ public class Ex06 {
     }
 
     String compute(int[] arrayA, int[] arrayB) {
-        String output = null;
         final int[] vetorC = new int[arrayA.length * 2];
         for (int i = 0; i < arrayA.length; i++) {
-            vetorC[i] = i % 2 == 0 ? arrayA[i] : arrayB[i];
+            vetorC[2*i] = arrayA[i];
+            vetorC[2*i+1] = arrayB[i];
         }
 
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < vetorC.length; i++) {
+            output.append(vetorC[i]);
+            if (i < vetorC.length-1) {
+                output.append(" ");
+            }
+        }
 
-
-        return output;
+        return output.toString();
     }
 }
