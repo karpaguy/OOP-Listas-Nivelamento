@@ -93,8 +93,38 @@ public class sport_team {
         public void setCaptain(Player captain) {
             this.captain = captain;
         }
-        // public Player[] getFieldedPlayers() {}
-        // public Player[] getOutfieldedPlayers() {}
+        public Player[] getFieldedPlayers() {
+            // Sem o uso de ArrayList ou Stream, precisa ser feito dessa forma com dois loops.
+            int acc = 0;
+            for (int i =0; i < numberOfPlayers; i++) {
+                if (players[i].getStateAsString().equals("FIELDED")) {
+                    acc++;
+                }
+            }
+            Player[] fieldedPlayers = new Player[acc];
+            for (int i = 0; i < numberOfPlayers; i++) {
+                if (players[i].getStateAsString().equals("FIELDED")) {
+                    fieldedPlayers[acc--] = players[i];
+                }
+            }
+            return fieldedPlayers;
+        }
+        public Player[] getOutfieldedPlayers() {
+            // Sem o uso de ArrayList ou Stream, precisa ser feito dessa forma com dois loops.
+            int acc = 0;
+            for (int i =0; i < numberOfPlayers; i++) {
+                if (players[i].getStateAsString().equals("NOT-FIELDED")) {
+                    acc++;
+                }
+            }
+            Player[] outfieldedPlayers = new Player[acc];
+            for (int i = 0; i < numberOfPlayers; i++) {
+                if (players[i].getStateAsString().equals("NOT-FIELDED")) {
+                    outfieldedPlayers[acc--] = players[i];
+                }
+            }
+            return outfieldedPlayers;
+        }
     }
 
     public void main(String[] args) {
