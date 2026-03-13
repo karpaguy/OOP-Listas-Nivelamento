@@ -104,7 +104,7 @@ public class sport_team {
             Player[] fieldedPlayers = new Player[acc];
             for (int i = 0; i < numberOfPlayers; i++) {
                 if (players[i].getStateAsString().equals("FIELDED")) {
-                    fieldedPlayers[acc--] = players[i];
+                    fieldedPlayers[--acc] = players[i];
                 }
             }
             return fieldedPlayers;
@@ -120,7 +120,7 @@ public class sport_team {
             Player[] outfieldedPlayers = new Player[acc];
             for (int i = 0; i < numberOfPlayers; i++) {
                 if (players[i].getStateAsString().equals("NOT-FIELDED")) {
-                    outfieldedPlayers[acc--] = players[i];
+                    outfieldedPlayers[--acc] = players[i];
                 }
             }
             return outfieldedPlayers;
