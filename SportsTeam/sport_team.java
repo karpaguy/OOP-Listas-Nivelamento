@@ -1,4 +1,4 @@
-package br.edu.ifsp.exercicios_aula;
+package br.edu.ifsp.SportsTeam;
 public class sport_team {
     public class Player {
         private String name;
