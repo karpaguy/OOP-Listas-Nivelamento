@@ -13,11 +13,19 @@ public class Deck {
         }
     }
 
-    // Não há outra forma de remover cartas do baralho, somente comprando.
+    // Não há outra forma de remover cartas do baralho, somente comprando. Não é um baralho preparado ao truco.
     public Card drawRandomCard() {
         int randomPos = (int) (Math.random() * cardAccumulator);
         Card pickedCard = cardsCollection[randomPos];
-        cardsCollection[randomPos] = cardsCollection[cardAccumulator--];
+        cardsCollection[randomPos] = cardsCollection[cardAccumulator - 1];
+        cardAccumulator--;
         return pickedCard; // O objeto não some da memória fora do array, segue com apontamento.
     }
+
+    public void returnCardToDeck(Card card) {
+        cardsCollection[++cardAccumulator] = card;
+    }
+
+    // draw XMany;
+
 }
