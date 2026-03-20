@@ -1,7 +1,7 @@
 package br.edu.ifsp.CardsDeal;
 public class Deck {
-    private int cardAccumulator = 48;
-    private final Card[] cardsCollection = new Card[cardAccumulator];
+    private int cardAccumulator = 0;
+    private final Card[] cardsCollection = new Card[48];
     // Usar a própria playerHand pra retornar cartas.
 
     public Deck() {
@@ -9,6 +9,7 @@ public class Deck {
         for (Card.Suits suit : Card.Suits.values()) {
             for (Card.Ranks rank : Card.Ranks.values()) {
                 cardsCollection[i++] = new Card(suit, rank);
+                cardAccumulator++;
             }
         }
     }
@@ -23,7 +24,12 @@ public class Deck {
     }
 
     public void returnCardToDeck(Card card) {
-        cardsCollection[++cardAccumulator] = card;
+        if (cardAccumulator >= cardsCollection.length) {
+            System.out.println("Deck is already full.");
+            return;
+        }
+        cardsCollection[cardAccumulator] = card;
+        cardAccumulator++;
     }
 
     // draw XMany;
