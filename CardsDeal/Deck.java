@@ -23,6 +23,14 @@ public class Deck {
         return pickedCard; // O objeto não some da memória fora do array, segue com apontamento.
     }
 
+    public Card[] drawXManyCards(int amount) {
+        final Card[] xManyCards = new Card[amount];
+        for (int i = 0; i < amount; i++) {
+            xManyCards[i] = drawRandomCard();
+        }
+        return xManyCards;
+    }
+
     public void returnCardToDeck(Card card) {
         if (cardAccumulator >= cardsCollection.length) {
             System.out.println("Deck is already full.");
@@ -31,7 +39,4 @@ public class Deck {
         cardsCollection[cardAccumulator] = card;
         cardAccumulator++;
     }
-
-    // draw XMany;
-
 }

@@ -6,6 +6,7 @@ class Dealer {
         Deck deck = new Deck();
         final Card[] dealerCards = new Card[3];
         int accHand = 0;
+        final int MAXIMUM_CARDS = 3;
 
         Scanner scanner = new Scanner(System.in);
         int opt = 0;
@@ -23,7 +24,7 @@ class Dealer {
 
             switch (opt) {
                 case 1:
-                    if (accHand >= 3) {
+                    if (accHand >= MAXIMUM_CARDS) {
                         System.out.println("Maximum hand cards reached.");
                     } else {
                         dealerCards[accHand] = deck.drawRandomCard();
@@ -55,6 +56,8 @@ class Dealer {
                         dealerCards[cardToReturnIndex] = dealerCards[accHand--];
                     }
                     break;
+                case 5:
+
             }
         } while (opt != 6) ;
     }
