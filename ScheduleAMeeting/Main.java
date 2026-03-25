@@ -28,6 +28,7 @@ public class Main {
         scheduleToday.addMeeting(meetingTwo);
         scheduleToday.addMeeting(meetingThree);
 
+        scheduleToday.removeMeeting(meetingTwo);
 
         System.out.println(scheduleToday.scheduleAsString());
         // TODO → Menu de adição de meeting, testar criar LocalTime.

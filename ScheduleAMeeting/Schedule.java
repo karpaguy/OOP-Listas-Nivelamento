@@ -21,15 +21,34 @@ public class Schedule {
 
     public void addMeeting(Meeting meeting) {
         if (meeting == null) return;
+        if (meetingAcc >= 10) return;
         if (meeting.getStartTime().isBefore(this.startTime) || meeting.getEndTime().isAfter(this.endTime)) {
             return;
         }
-        for (int i = 0; i < scheduledMeetings.length; i++) {
+        for (int i = 0; i < meetingAcc; i++) {
             if (meeting.getStartTime().isBefore(scheduledMeetings[i].getEndTime())) {
                 return;
             }
         }
         scheduledMeetings[meetingAcc++] = (meeting);
+    }
+
+    private int locateMeetingIndex(Meeting meeting) {
+        for (int i = 0; i < scheduledMeetings.length; i++) {
+            if (scheduledMeetings[i].equals(meeting)) return i;
+        }
+        return -1;
+    }
+
+    public void removeMeeting(Meeting meeting) {
+        // Fazer ordenação depois.
+        int indexPos = locateMeetingIndex(meeting);
+        if(indexPos == -1) return;
+
+        for (int i = indexPos; i < scheduledMeetings.length-1; i++) {
+            scheduledMeetings[i] = scheduledMeetings[i+1];
+        }
+        scheduledMeetings[meetingAcc--] = null;
     }
 
     public String scheduleAsString() {
