@@ -31,6 +31,20 @@ public class Main {
         scheduleToday.removeMeeting(meetingTwo);
 
         System.out.println(scheduleToday.scheduleAsString());
+
+        final LocalDate workingDay2 = LocalDate.now();
+        final LocalTime startingHour2 = LocalTime.of(10, 0);
+        final LocalTime endingHour2 = LocalTime.of(10,50);
+
+        Schedule scheduleToday2 = new Schedule(workingDay2, startingHour2, endingHour2);
+
+        Meeting meetingFour = new Meeting("Meeting to discuss the working flow",
+                LocalTime.of(10,0),
+                LocalTime.of(10,25));
+
+        scheduleToday2.addMeeting(meetingFour);
+
+        System.out.println("Percentage of Time Spent in Meetings: " + scheduleToday2.percentageSpentInMeetings() + "%");
         // TODO → Menu de adição de meeting, testar criar LocalTime.
     }
 }

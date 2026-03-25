@@ -1,9 +1,8 @@
 package br.edu.ifsp.ScheduleAMeeting;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Schedule {
     private LocalDate day;
@@ -40,6 +39,18 @@ public class Schedule {
         return -1;
     }
 
+    private long scheduleDurationInMinutes() {
+        return Duration.between(startTime, endTime).toMinutes();
+    }
+
+    public double percentageSpentInMeetings() {
+        double timeInMeetings = 0;
+        for (int i = 0; i < meetingAcc; i++) {
+            timeInMeetings += scheduledMeetings[i].durationInMinutes();
+        }
+        return (double) ((timeInMeetings / scheduleDurationInMinutes()) * 100);
+    }
+
     public void removeMeeting(Meeting meeting) {
         // Fazer ordenação depois.
         int indexPos = locateMeetingIndex(meeting);
@@ -62,6 +73,4 @@ public class Schedule {
         }
         return sb.toString();
     }
-
-
 }
