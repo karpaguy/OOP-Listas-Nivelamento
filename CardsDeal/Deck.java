@@ -31,6 +31,7 @@ public class Deck {
         return xManyCards;
     }
 
+    //TODO não faz muito sentido isso aqui não. A ideia é gerar um novo baralho a cara jogo
     public void returnCardToDeck(Card card) {
         if (cardAccumulator >= cardsCollection.length) {
             System.out.println("Deck is already full.");

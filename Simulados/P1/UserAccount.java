@@ -1,11 +1,14 @@
 package br.edu.ifsp.Simulados.P1;
 
+//TODO veja no Moodle que já tem um espelho de resolução
 public class UserAccount {
     private String email;
     private String userName;
+
     private UserAccount[] followers;
     private Post[] myPosts;
     private Post[] myTimeline;
+
     private int accFollowers;
     private int accTimeline;
     private int accMyPosts;
@@ -17,7 +20,7 @@ public class UserAccount {
         this.myPosts = new Post[100];
         this.myTimeline = new Post[10];
         this.accFollowers = 0;
-        this.accTimeline = 0;
+        this.accTimeline = 0; // TODO não precisa inicializar valor padrão.
         this.accMyPosts = 0;
     }
 
@@ -25,6 +28,7 @@ public class UserAccount {
         myTimeline[accTimeline % 10] = newPost;
         accTimeline++;
     }
+
     public void updateTimeline(Post newPost) {
         if (newPost == null) return;
         for (int i = 0; i < accFollowers; i++) {

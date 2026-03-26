@@ -1,6 +1,7 @@
 package br.edu.ifsp.CardsDeal;
 import java.util.Scanner;
 
+//TODO bom para praticar, mas não precisa ficar gastando muito tempo com menu não.
 class Dealer {
     public void main(String[] args) {
         Deck deck = new Deck();

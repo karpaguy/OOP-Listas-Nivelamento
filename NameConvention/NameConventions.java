@@ -2,6 +2,8 @@ package br.edu.ifsp.NameConvention;
 import java.util.regex.Pattern;
 
 public class NameConventions {
+    //TODO a ideia do exercício era usar a manipulação de chars, para praticar, mas
+    // regex é o mais indicado. Se está familiar com isso, pode tocar.
     private NameConventions() {};
     public static boolean isFollowingConvention(String jString, Conventions convention) {
         return switch (convention) {
@@ -13,6 +15,7 @@ public class NameConventions {
         };
     }
 
+    //TODO isso mesmo
     public static String fromConstToVariable(String jString) {
         jString = jString.toLowerCase();
         for (int i = 0; i < jString.length(); i++) {
@@ -23,6 +26,7 @@ public class NameConventions {
         return jString;
     }
 
+    //TODO tá good
     public static String fromVariableToConst(String jString) {
         for (int i = 0; i < jString.length(); i++) {
             if (Character.isUpperCase(jString.charAt(i))) {
