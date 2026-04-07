@@ -82,6 +82,13 @@ public class UserAccount {
         }
     }
 
+    public String showMyPosts() {
+
+    }
+    public String showMyFriends() {
+
+    }
+
     public String getUserName() {
         return userName;
     }
