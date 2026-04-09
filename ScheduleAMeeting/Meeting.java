@@ -3,7 +3,7 @@ import java.time.Duration;
 import java.time.LocalTime;
 
 public class Meeting {
-    private String description;
+    private String description; // TODO se não vai mudar o estado, é boa prática colocar final
     private LocalTime startTime;
     private LocalTime endTime;
 
@@ -25,6 +25,7 @@ public class Meeting {
         return this.endTime;
     }
 
+    //TODO good boy...
     public long durationInMinutes() {
         return Duration.between(startTime, endTime).toMinutes();
     }
