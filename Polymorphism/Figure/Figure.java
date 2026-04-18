@@ -1,0 +1,22 @@
+package br.edu.ifsp.Polymorphism.Figure;
+
+public sealed abstract class Figure permits Circle, Triangle, Rectangle {
+    final private double x;
+    final private double y;
+
+    Figure(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public abstract double area();
+
+    @Override
+    public String toString() {
+        return String.format("%.2f, %.2f", x, y);
+    }
+
+    public double getX() { return x; }
+
+    public double getY() { return y; }
+}
