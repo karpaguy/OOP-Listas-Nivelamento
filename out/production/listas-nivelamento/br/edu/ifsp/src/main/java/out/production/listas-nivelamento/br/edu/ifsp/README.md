@@ -1,1 +1,0 @@
-Tarefas de nivelamente de Java preparadas pelo Prof. Dr. Lucas Bueno R. de Oliveira da IFSP na matéria de SCLPROO no ano de 2026.
